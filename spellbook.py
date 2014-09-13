@@ -14,7 +14,7 @@ def getOrdersFromSpell(spell):
 		return ["LIGHT_OFF", "COOLER_OFF"]
 	else:
 		print u"This spell is not registered"
-		return None
+		return []
 
 def getDataFromOrder(order):
 	if order == "LIGHT_ON":

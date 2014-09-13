@@ -26,25 +26,23 @@ def main():
 				print 'Shutting down.'
 				break
 			else:
-				if "<RECOGOUT>" in data:                # found the start of a reco block
-					recBuf = data 	                     # start a new reco_out block
-					recMode = True                           # keep all the following data
-	
-				elif "</RECOGOUT>" in data:             # found the end of a reco block
+				if "<RECOGOUT>" in data:
+					recBuf = data
+					recMode = True
+
+				elif "</RECOGOUT>" in data:
 					recBuf = recBuf + data 
 					spell = get_sentence(recBuf) 
 					spell = spell.decode('utf-8')
 					print spell
 	
 					orders = spellbook.getOrdersFromSpell(spell)
+					for order in orders:
+						data = spellbook.getDataFromOrder(order)
+						IRkit.sendData(data)
 	
-					if orders is not None:
-						for order in orders:
-							data = spellbook.getDataFromOrder(order)
-							IRkit.sendData(data)
-	
-				elif recMode:                              # not yet the end of the block, keep data and continue
-					recBuf = recBuf +data
+				elif recMode:
+					recBuf = recBuf + data
 	
 	client_socket.close()
 

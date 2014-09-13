@@ -6,9 +6,11 @@ def main():
 	import sys
 	import select
 	from irkitmanager import IRKitManager
+	import myhomeconf
 	import spellbook
-	
-	IRkit = IRKitManager()
+
+	ip = myhomeconf.ip
+	IRkit = IRKitManager(ip)
 	
 	host = "localhost"
 	port = 10500

@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 class IRKitManager:
-	def __init__(self):
-		self.ip = "192.168.11.23"
+	def __init__(self, ip):
+		self.ip = ip
 	
 	def sendData(self, data):
 		import httplib, urllib

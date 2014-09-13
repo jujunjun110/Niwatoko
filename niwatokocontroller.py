@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 
 def main():
-	import socket
-	import sys
-	import select
+	import socket, sys, select
+
 	from irkitmanager import IRKitManager
 	import myhomeconf
 	import spellbook
@@ -52,7 +51,7 @@ def get_sentence(recBuf):
 	word = ""
 
 	index_start = recBuf.find("<RECOGOUT>")
-	index_end   = recBuf.find("</RECOGOUT>")+11
+	index_end   = recBuf.find("</RECOGOUT>") + 11
 
 	lines  = recBuf[index_start:index_end].splitlines()
 
@@ -62,7 +61,7 @@ def get_sentence(recBuf):
 		index_class = lines[i].find("CLASSID=")
 		index_cm    = lines[i].find("CM=")
 		
-		word  = word + lines[i][index_word+6:index_class-2]
+		word  = word + lines[i][index_word + 6:index_class - 2]
 		
 	return word
 

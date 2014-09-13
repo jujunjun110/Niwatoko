@@ -13,7 +13,7 @@ def getOrdersFromSpell(spell):
 	elif spell == u"全部消す":
 		return ["LIGHT_OFF", "COOLER_OFF"]
 	else:
-		print u"This spell is not registered"
+		print "This spell is not registered"
 		return []
 
 def getDataFromOrder(order):

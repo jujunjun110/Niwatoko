@@ -1,4 +1,7 @@
-# 自分の環境のIRKitのIPアドレス
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# IRKitのIPアドレス
 ip = "192.168.00.00"
 
 

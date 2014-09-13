@@ -4,11 +4,11 @@
 def main():
 	import socket, sys, select
 
-	from irkitmanager import IRKitManager
-	import myhomeconf
-	import spellbook
+	from irkit_manager import IRKitManager
+	import myhome_conf
+	import spell_book
 
-	ip = myhomeconf.ip
+	ip = myhome_conf.ip
 	IRkit = IRKitManager(ip)
 	
 	host = "localhost"
@@ -17,8 +17,8 @@ def main():
 	client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	client_socket.connect(addr)
 	
-	recMode = False
-	recBuf = ""
+	rec_mode = False
+	rec_buf = ""
 	while True:
 			data = client_socket.recv(80)
 			if not data:
@@ -26,34 +26,34 @@ def main():
 				break
 			else:
 				if "<RECOGOUT>" in data:
-					recBuf = data
-					recMode = True
+					rec_buf = data
+					rec_mode = True
 
 				elif "</RECOGOUT>" in data:
-					recBuf = recBuf + data 
-					spell = get_sentence(recBuf) 
+					rec_buf = rec_buf + data 
+					spell = get_sentence(rec_buf) 
 					spell = spell.decode('utf-8')
 					print spell
 	
-					orders = spellbook.getOrdersFromSpell(spell)
+					orders = spell_book.get_orders_from_spell(spell)
 					for order in orders:
-						data = spellbook.getDataFromOrder(order)
-						IRkit.sendData(data)
+						data = spell_book.get_data_from_order(order)
+						IRkit.send_data(data)
 	
-				elif recMode:
-					recBuf = recBuf + data
+				elif rec_mode:
+					rec_buf = rec_buf + data
 	
 	client_socket.close()
 
 
-def get_sentence(recBuf):
+def get_sentence(rec_buf):
 	
 	word = ""
 
-	index_start = recBuf.find("<RECOGOUT>")
-	index_end   = recBuf.find("</RECOGOUT>") + 11
+	index_start = rec_buf.find("<RECOGOUT>")
+	index_end   = rec_buf.find("</RECOGOUT>") + 11
 
-	lines  = recBuf[index_start:index_end].splitlines()
+	lines  = rec_buf[index_start:index_end].splitlines()
 
 	# 最初・最後の3行ずつは必ず不要な行
 	for i in range(3, len(lines) - 3):

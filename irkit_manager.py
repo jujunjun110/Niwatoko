@@ -5,7 +5,7 @@ class IRKitManager:
 	def __init__(self, ip):
 		self.ip = ip
 	
-	def sendData(self, data):
+	def send_data(self, data):
 		import httplib, urllib
 
 		params = 'message=' + data

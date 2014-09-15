@@ -13,8 +13,8 @@ rm *.tar.gz
 # juliusのインストール
 cd julius-4.3.1
 ./configure
-make
-make install
+sudo make
+sudo make install
 
 
 

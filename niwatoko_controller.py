@@ -53,7 +53,6 @@ def get_sentence(rec_buf):
 	index_end   = rec_buf.find("</RECOGOUT>") + 11
 	lines  = rec_buf[index_start:index_end].splitlines()
 
-	# 最初・最後の3行ずつは必ず不要な行
 	for line in lines:
 		index_word  = line.find("WORD=")
 		index_class = line.find("CLASSID=")

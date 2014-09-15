@@ -49,20 +49,19 @@ def main():
 def get_sentence(rec_buf):
 	
 	word = ""
-
 	index_start = rec_buf.find("<RECOGOUT>")
 	index_end   = rec_buf.find("</RECOGOUT>") + 11
-
 	lines  = rec_buf[index_start:index_end].splitlines()
 
 	# 最初・最後の3行ずつは必ず不要な行
-	for i in range(3, len(lines) - 3):
-		index_word  = lines[i].find("WORD=")
-		index_class = lines[i].find("CLASSID=")
-		index_cm    = lines[i].find("CM=")
+	for line in lines:
+		index_word  = line.find("WORD=")
+		index_class = line.find("CLASSID=")
+		index_cm    = line.find("CM=")
 		
-		word  = word + lines[i][index_word + 6:index_class - 2]
-		
+		if index_word != -1 and index_class != -1:
+			word  = word + line[index_word + 6:index_class - 2]
+
 	return word
 
 if __name__ == "__main__":

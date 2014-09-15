@@ -42,7 +42,8 @@ def main():
 					orders = spell_book.get_orders_from_spell(spell)
 					for order in orders:
 						data = spell_book.get_data_from_order(order)
-						IRkit.send_data(data)
+						if data is not None:
+							IRkit.send_data(data)
 	
 				elif rec_mode:
 					rec_buf = rec_buf + data

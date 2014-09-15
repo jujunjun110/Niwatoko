@@ -1,2 +1,3 @@
 myhome_conf.py
 *.pyc
+vendor/*

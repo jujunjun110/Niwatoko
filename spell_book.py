@@ -13,7 +13,7 @@ def get_orders_from_spell(spell):
 	if conf["spells"].has_key(spell):
 		return conf["spells"][spell]
 	else:
-		return None
+		return []
 
 def get_data_from_order(order):
 	if conf["orders"].has_key(order):

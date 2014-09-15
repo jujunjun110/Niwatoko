@@ -1,5 +1,5 @@
-# 毎回辞書ファイルを更新 
-iconv -f utf8 -t eucjp ./orders/orders.yomi | ./vendor/julius-4.3.1/gramtools/yomi2voca/yomi2voca.pl > ./orders/orders.dic
+# 辞書ファイルを更新 
+iconv -f utf8 -t eucjp ./settings/orders.yomi | ./vendor/julius-4.3.1/gramtools/yomi2voca/yomi2voca.pl > ./orders/orders.dic
 
 
 file=./vendor/julius-4.3.1/julius/julius

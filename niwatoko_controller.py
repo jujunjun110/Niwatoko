@@ -2,13 +2,17 @@
 # -*- coding: utf-8 -*-
 
 def main():
-	import socket, sys, select
+	import socket, sys, select, yaml
 
 	from irkit_manager import IRKitManager
-	import myhome_conf
 	import spell_book
 
-	ip = myhome_conf.ip
+	conf_file = "./myhome_conf.yaml"
+	f = open(conf_file, "r")
+	conf = yaml.load(f)	
+	f.close()
+	
+	ip = conf["ip"]
 	IRkit = IRKitManager(ip)
 	
 	host = "localhost"

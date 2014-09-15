@@ -1,0 +1,11 @@
+-w orders.dic
+
+-v ../vendor/dictation-kit-v4.2.3/model/lang_m/web.60k.htkdic
+-h ../vendor/dictation-kit-v4.2.3/model/phone_m/hmmdefs_ptm_gid.binhmm
+-hlist ../vendor/dictation-kit-v4.2.3/model/phone_m/logicalTri
+-n 5
+-output 1
+-input mic
+-zmeanframe
+-rejectshort 800
+-charconv EUC-JP UTF-8

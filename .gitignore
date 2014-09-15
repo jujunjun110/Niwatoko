@@ -1,3 +1,5 @@
 myhome_conf.py
 *.pyc
-vendor/*
+vendor/dictation-kit-v4.2.3
+vendor/grammar-kit-v4.1
+vendor/julius-4.3.1

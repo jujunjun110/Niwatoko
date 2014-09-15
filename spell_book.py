@@ -4,11 +4,15 @@
 def get_orders_from_spell(spell):	
 	if spell == u"光あれ":
 		return ["LIGHT_ON"] 
-	elif spell == u"ライト":
+	elif spell == u"おはよう":
+		return ["LIGHT_ON"] 
+	elif spell == u"ただいま":
 		return ["LIGHT_ON"] 
 	elif spell == u"イオナズン":
 		return ["LIGHT_ON"] 
-	elif spell == u"闇の力よ":
+	elif spell == u"行ってきます":
+		return ["LIGHT_OFF"]
+	elif spell == u"おやすみ":
 		return ["LIGHT_OFF"]
 	elif spell == u"暗闇":
 		return ["LIGHT_OFF"]

@@ -4,7 +4,7 @@
 import yaml
 import spell_book
 
-conf_file = "./myhome_conf.yaml"
+conf_file = "./settings/myhome_conf.yaml"
 f = open(conf_file, "r")
 conf = yaml.load(f)	
 f.close()

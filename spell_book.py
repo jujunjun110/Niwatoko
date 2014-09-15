@@ -6,6 +6,8 @@ def get_orders_from_spell(spell):
 		return ["LIGHT_ON"] 
 	elif spell == u"ライト":
 		return ["LIGHT_ON"] 
+	elif spell == u"イオナズン":
+		return ["LIGHT_ON"] 
 	elif spell == u"闇の力よ":
 		return ["LIGHT_OFF"]
 	elif spell == u"暗闇":

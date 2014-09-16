@@ -38,6 +38,7 @@ def main():
 					spell = get_sentence(rec_buf) 
 					spell = spell.decode('utf-8')
 					print spell
+					rec_mode = False
 	
 					orders = spell_book.get_orders_from_spell(spell)
 					for order in orders:

@@ -1,6 +1,9 @@
 # 辞書ファイルを更新 
 iconv -f utf8 -t eucjp ./settings/orders.yomi | ./vendor/julius-4.3.1/gramtools/yomi2voca/yomi2voca.pl > ./orders/orders.dic
 
+# assign mic 
+export ALSADEV="plughw:0,0"
+
 
 file=./vendor/julius-4.3.1/julius/julius
 if [ -e $file ];

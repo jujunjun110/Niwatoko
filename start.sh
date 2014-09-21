@@ -15,5 +15,5 @@ else
 	./vendor/julius-4.3.1/julius/julius.dSYM -C ./orders/orders.jconf -charconv EUC-JP UTF-8 -module &
 fi
 
-sleep 5
+sleep 2
 python -B niwatoko_controller.py

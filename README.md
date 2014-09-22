@@ -7,12 +7,10 @@ Enable you to manipulate electronics with your voice as if "Niwatoko cane" in Ha
 ## 事前準備
 - Raspberry Pi + Raspbian で動作を確認
 - USBマイク, IRKit, インターネット接続必須
-
 - PyYAMLモジュールをインストールしておく必要あり
  - wget http://peak.telecommunity.com/dist/ez_setup.py
  - sudo python ez_setup.py
  - sudo easy_install PyYAML
-
 - マイクの設定
  - sudo gpasswd -a username audio #作業ユーザーをaudioグループに追加 
  - sudo vi /etc/modprobe.d/alsa-base.conf でusbマイクの優先度を0に 
@@ -23,5 +21,6 @@ Enable you to manipulate electronics with your voice as if "Niwatoko cane" in Ha
 
 ## 使い方
 1. vendor ディレクトリで`setup.sh`を実行（Juliusがvendorディレクトリによしなにインストールされます）
-2. `myhome_conf.yaml.sample`をもとに`myhome_conf.yaml`を作成し、自分のIRKitのローカルIPと、認識させたい言葉、IRKitのデータを書く
-3. `start.sh`を実行（5秒くらいで音声受付の準備が整う）
+2. settings/order_yomiを編集し、タブと改行によって、認識させたい言葉を書き込む
+3. `myhome_conf.yaml.sample`をもとに`myhome_conf.yaml`を作成し、自分のIRKitのローカルIPと、命令と実行する赤外線コマンド、IRKitの赤外線データを書く
+4. `start.sh`を実行（5秒くらいで音声受付の準備が整う）

@@ -7,8 +7,16 @@ Enable you to manipulate electronics with your voice as if "Niwatoko cane" in Ha
 ## 事前準備
 - Raspberry Pi + Raspbian で動作を確認
 - USBマイク, IRKit, インターネット接続必須
+
 - PyYAMLモジュールをインストールしておく必要あり
+ - wget http://peak.telecommunity.com/dist/ez_setup.py
+ - sudo python ez_setup.py
+ - sudo easy_install PyYAML
+
 - マイクの設定
+ - sudo gpasswd -a username audio #作業ユーザーをaudioグループに追加 
+ - sudo vi /etc/modprobe.d/alsa-base.conf でusbマイクの優先度を0に 
+ - sudo modprobe snd-pcm-oss # モジュールの読み込み
  - `arecord -l` でマイクのカード番号(とサブデバイス番号)を取得
  - `export ALSADEV=hw:0` のようにカード番号を環境設定にexport
  - http://cubic9.com/Devel/%C5%C5%BB%D2%B9%A9%BA%EE/RaspberryPi/%C6%FC%CB%DC%B8%EC%B2%BB%C0%BC%C7%A7%BC%B1/ が参考になる 

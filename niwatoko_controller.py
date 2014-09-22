@@ -5,16 +5,17 @@ def main():
 	import socket, sys, select, yaml
 
 	from irkit_manager import IRKitManager
-	import spell_book
+	from spell_book import SpellBook
 
 	conf_file = "./settings/myhome_conf.yaml"
 	f = open(conf_file, "r")
 	conf = yaml.load(f)	
 	f.close()
 	
-	ip = conf["ip"]
-	IRkit = IRKitManager(ip)
-	
+	IRkit = IRKitManager(conf["ip"])	
+	spell_book = SpellBook(conf["spells"], conf["orders"])
+
+
 	host = "localhost"
 	port = 10500
 	addr = (host,port)
